@@ -9,7 +9,14 @@ import {
 } from './definitions';
 import { formatCurrency } from './utils';
 
-const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
+const sql = postgres(process.env.POSTGRES_URL!, { 
+  ssl: 'require',
+  connect_timeout: 30,
+  idle_timeout: 20,
+  max_lifetime: 60 * 30,
+  max: 10,
+  onnotice: () => {},
+});
 
 export async function fetchRevenue() {
   try {
