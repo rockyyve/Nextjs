@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { createClient } from "@/utils/supabase/client";
 import { User } from "@supabase/supabase-js";
+import { LogoutButton } from "@/components/login/logout-button";
 
 export function CreatePostLink() {
   const [user, setUser] = useState<User | null>(null);
@@ -49,11 +50,14 @@ export function CreatePostLink() {
   }
 
   return (
-    <Link 
-      href="/create"
-      className="inline-flex items-center px-4 py-2 bg-green-600 hover:bg-green-700 text-white font-medium rounded-lg transition-colors duration-200"
-    >
-      ✏️ Create Post
-    </Link>
+    <div className="flex items-center gap-3">
+      <Link 
+        href="/create"
+        className="inline-flex items-center px-4 py-2 bg-green-600 hover:bg-green-700 text-white font-medium rounded-lg transition-colors duration-200"
+      >
+        ✏️ Create Post
+      </Link>
+      <LogoutButton />
+    </div>
   );
 } 

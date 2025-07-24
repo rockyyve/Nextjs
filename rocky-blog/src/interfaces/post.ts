@@ -12,4 +12,5 @@ export type Post = {
   };
   content: string;
   preview?: boolean;
+  author_id?: string; // 添加作者ID字段
 };

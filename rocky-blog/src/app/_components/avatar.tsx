@@ -6,8 +6,14 @@ type Props = {
 const Avatar = ({ name, picture }: Props) => {
   return (
     <div className="flex items-center">
-      <img src={picture} className="w-12 h-12 rounded-full mr-4" alt={name} />
-      <div className="text-xl font-bold">{name}</div>
+      <img 
+        src={picture} 
+        className="w-8 h-8 md:w-10 md:h-10 rounded-full mr-3" 
+        alt={name} 
+      />
+      <div className="text-sm md:text-base font-medium text-gray-700 dark:text-gray-300">
+        {name}
+      </div>
     </div>
   );
 };
